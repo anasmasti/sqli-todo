@@ -1,16 +1,13 @@
 <template>
-  <div id="wrapper">
-    <Header />
     <main>
-      <slot name="addTodoForm" />
-      <h2>
-        <slot name="heading" />
-      </h2>
-      <ul>
-        <slot />
-      </ul>
+        <slot name="addTodoForm" />
+        <h2>
+            <slot name="heading" />
+        </h2>
+        <ul>
+            <slot />
+        </ul>
     </main>
-  </div>
 </template>
 
 <style lang="postcss" scoped>

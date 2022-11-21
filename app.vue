@@ -1,9 +1,10 @@
 <template>
-
   <Head>
     <Title>SQLI Todo</Title>
   </Head>
-  <NuxtPage />
+  <NuxtLayout name="default">
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <script lang="ts" setup>

@@ -1,13 +1,13 @@
 <template>
   <NuxtLayout name="main">
     <template #heading><span>Done Todos</span></template>
-    <Todo v-for="todo in doneTodos || []" :key="todo.text" :todoProps="todo" @update-done-todos="updateDoneTodos" />
+    <Todo v-for="todo in doneTodos || []" :key="todo.text" :todo="todo" @update-done-todos="updateDoneTodos" />
     <p v-if="showMessage" class="no-todos">There's no done todo.</p>
   </NuxtLayout>
 </template>
 
 <script setup lang="ts">
-import { useTodoStore } from "~~/store/todo";
+import { useTodoStore } from "@/store/todo";
 onBeforeMount(() => changeShowMessage());
 
 const store = useTodoStore();

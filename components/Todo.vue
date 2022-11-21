@@ -1,21 +1,21 @@
 <template>
   <li class="todo">
     <span contenteditable @focus="getSpanTextBeforeChange($event)" @focusout="changeTodoText($event)"
-      :class="todoProps.done && 'done'">{{ todoProps.text }}</span>
+      :class="todo.done && 'done'">{{ todo.text }}</span>
     <div class="actions">
-      <a v-if="todoProps.done" @click="changeTodoStatus($event)"><i class="fas fa-undo"></i></a>
-      <a v-else @click="changeTodoStatus($event)"><i class="far fa-check"></i></a>
-      <a @click="deleteTodo($event)"><i class="fas fa-trash"></i></a>
+      <i v-if="todo.done" @click="changeTodoStatus($event)" class="fas fa-undo button"></i>
+      <i v-else @click="changeTodoStatus($event)" class="far fa-check button"></i>
+      <i @click="deleteTodo($event)" class="fas fa-trash button"></i>
     </div>
   </li>
 </template>
 
 <script setup lang="ts">
-import Todo from "~~/models/Todo";
-import { useTodoStore } from "~~/store/todo";
+import Todo from "@/models/Todo";
+import { useTodoStore } from "@/store/todo";
 
 type todoProps = {
-  todoProps: Todo
+  todo: Todo
 }
 const emit = defineEmits(["update-todos", "update-done-todos"]);
 const props = defineProps<todoProps>();
@@ -80,26 +80,14 @@ li.todo {
 
 .done {
   @apply line-through;
-  opacity: 0.8;
-}
-
-a {
-  @apply bg-orange-200 p-2 rounded-lg cursor-pointer text-black hover:bg-orange-100;
-}
-
-span {
-  @apply text-lg;
-  max-height: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-span:focus {
-  outline: 0;
+  opacity: 0.6;
 }
 
 .actions {
-  @apply h-full flex items-center gap-3;
+  @apply flex gap-2
+}
+
+.button {
+  @apply bg-orange-200 p-3 rounded-lg cursor-pointer text-black hover:bg-orange-100;
 }
 </style>

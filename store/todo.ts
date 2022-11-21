@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import Todo from "~~/models/Todo";
+import Todo from "@/models/Todo";
 
 export const useTodoStore = defineStore("todo", {
 	state: () => {
@@ -18,7 +18,7 @@ export const useTodoStore = defineStore("todo", {
 		},
 		changeTodoText(newText: string, todoIndex: number) {
 			if (newText) this.todos[todoIndex].text = newText.trim();
-			else this.todos[todoIndex].text = "🐢 No empty todos!";
+			else this.todos[todoIndex].text = "No empty todos!";
 		},
 		getTodosFromLocalStorage() {
 			const todosInStorage = localStorage.getItem("todos");

@@ -4,13 +4,13 @@
       <AddTodo @add-todo="addTodo" />
     </template>
     <template #heading><span>Todo List</span></template>
-    <Todo v-for="todo in todos || []" :key="todo.text" :todoProps="todo" @update-todos="updateTodos" />
+    <Todo v-for="todo in todos || []" :key="todo.text" :todo="todo" @update-todos="updateTodos" />
     <p v-if="showMessage" class="no-todos">Please add todo.</p>
   </NuxtLayout>
 </template>
 
 <script setup lang="ts">
-import { useTodoStore } from "~~/store/todo";
+import { useTodoStore } from "@/store/todo";
 
 onBeforeMount(() => changeShowMessage());
 
