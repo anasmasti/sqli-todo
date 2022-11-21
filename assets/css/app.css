@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.todo {
+  @apply p-4 bg-orange-50 rounded-xl;
+}
+
+.no-todos {
+  @apply text-gray-300 text-lg;
+}
+
+.logo {
+  font-family: "Monoton", cursive;
+}
